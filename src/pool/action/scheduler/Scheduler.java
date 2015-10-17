@@ -34,6 +34,6 @@ public abstract class Scheduler extends Action {
 	}
 	
 	public boolean isFinished() {
-		return this.isInProgress && this.actions.isEmpty();
+		return !this.isReady && this.actions.isEmpty();
 	}
 }

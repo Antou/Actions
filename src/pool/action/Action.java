@@ -7,14 +7,14 @@ import pool.action.exception.ActionFinishedException;
  */
 public abstract class Action {
 	
-	protected boolean isInProgress = false;
+	protected boolean isReady = true;
 	
 	/**
 	 * TODO
 	 * @return
 	 */
 	public boolean isReady() {
-		return !this.isInProgress;
+		return this.isReady;
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public abstract class Action {
 	 * @return
 	 */
 	public boolean isInProgress() {
-		return this.isInProgress && !this.isFinished();
+		return !this.isReady && !this.isFinished();
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public abstract class Action {
 			throw new ActionFinishedException();
 		}
 		
-		this.isInProgress = true;
+		this.isReady = false;
 		this.doStepAction();
 	}
 	

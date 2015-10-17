@@ -22,7 +22,7 @@ public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	@Override
 	public boolean isFinished() {
-		return this.isInProgress && this.resourcefulUser.getResource() == null;
+		return !this.isReady && this.resourcefulUser.getResource() == null;
 	}
 
 }
