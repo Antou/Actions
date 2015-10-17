@@ -1,10 +1,8 @@
 package pool;
 
-import pool.actions.exceptions.ActionFinishedException;
-import pool.actions.schedulers.FairScheduler;
-import pool.actions.schedulers.Swimmer;
-import pool.resources.BasketPool;
-import pool.resources.CubiclePool;
+import pool.action.exception.ActionFinishedException;
+import pool.action.scheduler.*;
+import pool.resource.*;
 
 public class Pool {
 	

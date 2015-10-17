@@ -1,4 +1,4 @@
-package pool.actions.exceptions;
+package pool.action.exception;
 
 @SuppressWarnings("serial")
 public class ActionFinishedException extends Exception {

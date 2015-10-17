@@ -1,4 +1,4 @@
-package pool.resources;
+package pool.resource;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  * TODO
  * @param <R>
  */
-public abstract class ResourcePool<R extends IResource> implements IResource {
+public abstract class ResourcePool<R extends Resource> implements Resource {
 	
 	protected ArrayList<R> resources;
 	protected ArrayList<R> usedResources;

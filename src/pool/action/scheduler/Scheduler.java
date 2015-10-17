@@ -1,9 +1,9 @@
-package pool.actions.schedulers;
+package pool.action.scheduler;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pool.actions.Action;
+import pool.action.Action;
 
 public abstract class Scheduler extends Action {
 

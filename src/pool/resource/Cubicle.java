@@ -1,6 +1,6 @@
-package pool.resources;
+package pool.resource;
 
-public class CubicleResource implements IResource {
+public class Cubicle implements Resource {
 
 	@Override
 	public String description() {

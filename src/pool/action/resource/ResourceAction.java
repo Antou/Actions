@@ -1,13 +1,13 @@
-package pool.actions.resources;
+package pool.action.resource;
 
-import pool.actions.Action;
-import pool.resources.*;
+import pool.action.Action;
+import pool.resource.*;
 
 /**
  * TODO
  * @param <R>
  */
-public abstract class ResourceAction<R extends IResource> extends Action {
+public abstract class ResourceAction<R extends Resource> extends Action {
 
 	protected ResourcefulUser<R> resourcefulUser;
 	protected ResourcePool<R> resourcePool;

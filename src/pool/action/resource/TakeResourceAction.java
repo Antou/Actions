@@ -1,15 +1,15 @@
-package pool.actions.resources;
+package pool.action.resource;
 
 import java.util.NoSuchElementException;
 
-import pool.actions.exceptions.ActionFinishedException;
-import pool.resources.*;
+import pool.action.exception.ActionFinishedException;
+import pool.resource.*;
 
 /**
  * TODO
  * @param <R>
  */
-public class TakeResourceAction<R extends IResource> extends ResourceAction<R> {
+public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	public TakeResourceAction(ResourcefulUser<R> resourcefulUser, ResourcePool<R> resourcePool) {
 		super(resourcefulUser, resourcePool);

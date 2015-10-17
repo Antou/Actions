@@ -1,6 +1,6 @@
-package pool.resources;
+package pool.resource;
 
-public class ResourcefulUser<R extends IResource> {
+public class ResourcefulUser<R extends Resource> {
 	
 	protected R resource;
 	

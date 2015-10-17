@@ -1,6 +1,6 @@
-package pool.actions;
+package pool.action;
 
-import pool.actions.exceptions.ActionFinishedException;
+import pool.action.exception.ActionFinishedException;
 
 /**
  * TODO

@@ -1,7 +1,7 @@
-package pool.actions.foreseeable;
+package pool.action.foreseeable;
 
-import pool.actions.Action;
-import pool.actions.exceptions.ActionFinishedException;
+import pool.action.Action;
+import pool.action.exception.ActionFinishedException;
 
 /**
  * TODO

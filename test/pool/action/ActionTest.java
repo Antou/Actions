@@ -1,10 +1,10 @@
-package pool.actions;
+package pool.action;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import pool.actions.exceptions.ActionFinishedException;
+import pool.action.exception.ActionFinishedException;
 
 public abstract class ActionTest {
 	

@@ -1,6 +1,6 @@
-package pool.resources;
+package pool.resource;
 
-public class BasketResource implements IResource {
+public class Basket implements Resource {
 
 	@Override
 	public String description() {

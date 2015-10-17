@@ -1,13 +1,13 @@
-package pool.actions.resources;
+package pool.action.resource;
 
-import pool.actions.exceptions.ActionFinishedException;
-import pool.resources.*;
+import pool.action.exception.ActionFinishedException;
+import pool.resource.*;
 
 /**
  * TODO
  * @param <R>
  */
-public class FreeResourceAction<R extends IResource> extends ResourceAction<R> {
+public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	public FreeResourceAction(ResourcefulUser<R> resourcefulUser, ResourcePool<R> resourcePool) {
 		super(resourcefulUser, resourcePool);
