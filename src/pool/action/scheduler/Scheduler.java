@@ -27,10 +27,15 @@ public abstract class Scheduler extends Action {
 		}
 	}
 	
-	protected void removeActionIfFinished(Action action) {
+	/**
+	 * TODO
+	 * @param action
+	 */
+	protected boolean removeActionIfFinished(Action action) {
 		if(action.isFinished()) {
-			this.actions.remove(action);
+			return this.actions.remove(action);
 		}
+		return false;
 	}
 	
 	public boolean isFinished() {
