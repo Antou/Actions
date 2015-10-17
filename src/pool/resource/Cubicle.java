@@ -1,5 +1,8 @@
 package pool.resource;
 
+/**
+ * A cubicle which can be used in the simulation to get changed
+ */
 public class Cubicle implements Resource {
 
 	@Override

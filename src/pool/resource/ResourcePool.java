@@ -5,8 +5,8 @@ import java.util.NoSuchElementException;
 
 
 /**
- * TODO
- * @param <R>
+ * A resource manager able to provide and free resources that it contains
+ * @param <R> specific kind of resource managed
  */
 public abstract class ResourcePool<R extends Resource> implements Resource {
 	
@@ -35,9 +35,9 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	
 	
 	/**
-	 * TODO
-	 * @param resourceToFree
-	 * @throws IllegalArgumentException
+	 * Can make available a resource previously used
+	 * @param resourceToFree the resource to free 
+	 * @throws IllegalArgumentException if this resource is not managed by this pool
 	 */
 	public void freeResource(R resourceToFree) throws IllegalArgumentException {
 		if(!this.usedResources.contains(resourceToFree)) {
@@ -50,9 +50,9 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	
 	
 	/**
-	 * TODO
-	 * @return
-	 * @throws NoSuchElementException
+	 * Return a unused resource from this pool 
+	 * @return the unused resource
+	 * @throws NoSuchElementException if no resource is currently available
 	 */
 	public R provideResource() throws NoSuchElementException {
 		if(this.resources.isEmpty()) {
