@@ -6,48 +6,74 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-public class ResourcePoolTest {
-	
-	@Test 
-	public void NoSuchElementExceptionTest() {
-		ResourcePool<Basket> baskets= new BasketPool(0);
-		
-		try {
-			baskets.provideResource();
-		    fail("Should throw exception when no resource is available");
-		}
-		catch(NoSuchElementException exp) {
-			assert(exp.getMessage().contains("No resource"));
-		}	
+public abstract class ResourcePoolTest<R extends Resource> {
+
+	protected abstract ResourcePool<R> createResourcePool(int capacity);
+	protected abstract R createResource();
+
+	@Test(expected= NoSuchElementException.class)
+	public void testProvideResourceWhenThereAreNoResource() {
+		ResourcePool<R> resourcePool = this.createResourcePool(0);
+
+		resourcePool.provideResource();
 	}
-	
-	@Test 
-	public void IllegalArgumentExceptionTest() {
-		ResourcePool<Basket> baskets= new BasketPool(0);
-		Basket basket = new Basket();
-		
-		try {
-			baskets.freeResource(basket);
-		    fail("Should throw exception when the resource is not managed by this ResourcePool");
-		}
-		catch(IllegalArgumentException exp) {
-			assert(exp.getMessage().contains("not included"));
-		}
+
+	@Test(expected= IllegalArgumentException.class)
+	public void testFreeResourceWithIllegalArgument() {
+		ResourcePool<R> resourcePool = this.createResourcePool(1);
+		R resource = this.createResource();
+
+		resourcePool.freeResource(resource);
 	}
-	
+
 	@Test
-	public void provideResourceTest() throws NoSuchElementException {
-		ResourcePool<Cubicle> cubicles = new CubiclePool(2);
-		Cubicle cubicle1 = cubicles.resources.get(0);
-		Cubicle cubicle2 = cubicles.resources.get(1);
-		
-		assertEquals(cubicle1, cubicles.provideResource());
-		assertEquals(cubicle2, cubicles.provideResource());
+	public void testProvideResource() {
+		ResourcePool<R> resourcePool = this.createResourcePool(2);
+		R resource1 = resourcePool.resources.get(0);
+		R resource2 = resourcePool.resources.get(1);
+
+		assertTrue(resourcePool.resources.contains(resource1));
+		assertTrue(resourcePool.resources.contains(resource2));
+		assertFalse(resourcePool.usedResources.contains(resource1));
+		assertFalse(resourcePool.usedResources.contains(resource2));
+
+		assertEquals(resource1, resourcePool.provideResource());
+
+		assertFalse(resourcePool.resources.contains(resource1));
+		assertTrue(resourcePool.resources.contains(resource2));
+		assertTrue(resourcePool.usedResources.contains(resource1));
+		assertFalse(resourcePool.usedResources.contains(resource2));
+
+		assertEquals(resource2, resourcePool.provideResource());
+
+		assertFalse(resourcePool.resources.contains(resource1));
+		assertFalse(resourcePool.resources.contains(resource2));
+		assertTrue(resourcePool.usedResources.contains(resource1));
+		assertTrue(resourcePool.usedResources.contains(resource2));
 	}
-	
+
 	@Test
-	public void freeResourceTest() throws IllegalArgumentException, NoSuchElementException {
-		// NYI
+	public void testFreeResource() {
+		ResourcePool<R> resourcePool = this.createResourcePool(2);
+		R resource1 = resourcePool.resources.get(0);
+		R resource2 = resourcePool.resources.get(1);
+
+		resourcePool.provideResource();
+		resourcePool.provideResource();
+
+		resourcePool.freeResource(resource1);
+
+		assertTrue(resourcePool.resources.contains(resource1));
+		assertFalse(resourcePool.resources.contains(resource2));
+		assertFalse(resourcePool.usedResources.contains(resource1));
+		assertTrue(resourcePool.usedResources.contains(resource2));
+
+		resourcePool.freeResource(resource2);
+
+		assertTrue(resourcePool.resources.contains(resource1));
+		assertTrue(resourcePool.resources.contains(resource2));
+		assertFalse(resourcePool.usedResources.contains(resource1));
+		assertFalse(resourcePool.usedResources.contains(resource2));
 	}
 
 }
