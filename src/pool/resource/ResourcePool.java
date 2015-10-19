@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  */
 public abstract class ResourcePool<R extends Resource> implements Resource {
 	
-	protected ArrayList<R> resources;
+	protected ArrayList<R> availableResources;
 	protected ArrayList<R> usedResources;
 	
 	
@@ -19,11 +19,11 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	 * @param capacity
 	 */
 	public ResourcePool(int capacity) {
-		this.resources = new ArrayList<R>(capacity);
+		this.availableResources = new ArrayList<R>(capacity);
 		this.usedResources = new ArrayList<R>();
 		
 		for(int i = 0; i < capacity; i++) {
-			this.resources.add(this.createResource());
+			this.availableResources.add(this.createResource());
 		}
 	}
 	
@@ -45,7 +45,7 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 		}
 		
 		this.usedResources.remove(resourceToFree);
-		this.resources.add(resourceToFree);
+		this.availableResources.add(resourceToFree);
 	}
 	
 	
@@ -55,11 +55,11 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	 * @throws NoSuchElementException if no resource is currently available
 	 */
 	public R provideResource() throws NoSuchElementException {
-		if(this.resources.isEmpty()) {
+		if(this.availableResources.isEmpty()) {
 			throw new NoSuchElementException();
 		}
 		
-		R resourceToReturn = this.resources.remove(0);
+		R resourceToReturn = this.availableResources.remove(0);
 		this.usedResources.add(resourceToReturn);
 		
 		return resourceToReturn;
