@@ -11,9 +11,9 @@ public abstract class Scheduler extends Action {
 	
 	/**
 	 * TODO
-	 * @param actionToAdd
-	 * @throws IllegalArgumentException
-	 * @throws IllegalStateException
+	 * @param actionToAdd the action to add to the scheduler
+	 * @throws IllegalArgumentException if the action to add is already finished
+	 * @throws IllegalStateException if the scheduler is already finished
 	 */
 	public void addAction(Action actionToAdd) throws IllegalArgumentException, IllegalStateException {
 		if(actionToAdd.isFinished()) {
