@@ -12,7 +12,7 @@ public class ResourcefulUserTest {
 		Cubicle resourceTest = new Cubicle();
 		
 		resourcefulUserTest.setResource(resourceTest);
-		assertEquals(resourcefulUserTest.resource, resourceTest);
+		assertEquals(resourceTest, resourcefulUserTest.resource);
 	}
 	
 	@Test
@@ -21,7 +21,7 @@ public class ResourcefulUserTest {
 		Cubicle resourceTest = new Cubicle();
 		
 		resourcefulUserTest.setResource(resourceTest);
-		assertEquals(resourcefulUserTest.resource, resourceTest);
+		assertEquals(resourceTest, resourcefulUserTest.resource);
 		
 		resourcefulUserTest.resetResource();
 		
