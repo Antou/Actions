@@ -4,17 +4,13 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * TODO
+ * Action which needs a specific number of steps to be finished 
  */
 public class ForeseeableAction extends Action {
 	
 	protected final int totalTime;
 	protected int remainingTime;
 	
-	/**
-	 * TODO
-	 * @param timeToEnd
-	 */
 	public ForeseeableAction(int timeToEnd) {
 		this.totalTime = timeToEnd;
 		this.remainingTime = timeToEnd;

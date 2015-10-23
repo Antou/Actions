@@ -5,12 +5,15 @@ import java.util.List;
 
 import pool.action.Action;
 
+/**
+ * A scheduler meant to store the different Actions to do and to remove them when finished  
+ */
 public abstract class Scheduler extends Action {
 
 	protected List<Action> actions = new ArrayList<Action>();
 	
 	/**
-	 * TODO
+	 * Add an action to the scheduler
 	 * @param actionToAdd the action to add to the scheduler
 	 * @throws IllegalArgumentException if the action to add is already finished
 	 * @throws IllegalStateException if the scheduler is already finished
@@ -28,7 +31,7 @@ public abstract class Scheduler extends Action {
 	}
 	
 	/**
-	 * TODO
+	 * Check if the action sent as a parameter is finished, and if it does, remove it from the List
 	 * @param action
 	 */
 	protected boolean removeActionIfFinished(Action action) {

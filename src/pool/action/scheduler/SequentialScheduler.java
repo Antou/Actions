@@ -4,7 +4,7 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * TODO
+ * A specifid kind of scheduler which execute the first Action in line 
  */
 public class SequentialScheduler extends Scheduler {
 

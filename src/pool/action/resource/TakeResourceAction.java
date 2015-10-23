@@ -6,8 +6,8 @@ import pool.action.exception.ActionFinishedException;
 import pool.resource.*;
 
 /**
- * TODO
- * @param <R>
+ * Action which, when executed, take a resource from a ResourcePool and give it to a ResourcefulUser
+ * @param <R> type of the resource
  */
 public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
@@ -17,8 +17,8 @@ public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
+		System.out.print(" \\ Trying to take resource from " + this.resourcePool.description() + "... ");
 		try {
-			System.out.print(" \\ Trying to take resource from " + this.resourcePool.description() + "... ");
 			this.resourcefulUser.setResource(this.resourcePool.provideResource());
 			System.out.println("success");
 		}

@@ -15,7 +15,7 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	
 	
 	/**
-	 * TODO
+	 * Define two arrayList storing respectively all the resources and the resources currently used (unavailable)
 	 * @param capacity
 	 */
 	public ResourcePool(int capacity) {
@@ -28,8 +28,8 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	}
 	
 	/**
-	 * TODO
-	 * @return
+	 * Create a resource corresponding to the type of ResourcePool
+	 * @return a resource 
 	 */
 	public abstract R createResource();
 	

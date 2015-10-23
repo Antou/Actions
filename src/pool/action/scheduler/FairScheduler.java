@@ -5,7 +5,7 @@ import pool.action.exception.ActionFinishedException;
 
 
 /**
- * TODO
+ * A specific kind of scheduler which execute one step of the next action in line
  */
 public class FairScheduler extends Scheduler {
 

@@ -3,7 +3,7 @@ package pool.action.foreseeable;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * TODO
+ * Action defined in several step during which the user put its clothes on in the simulation
  */
 public class DressAction extends ForeseeableAction {
 

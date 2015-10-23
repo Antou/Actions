@@ -4,8 +4,8 @@ import pool.action.exception.ActionFinishedException;
 import pool.resource.*;
 
 /**
- * TODO
- * @param <R>
+ * Action which, when executed, take its resource to a ResourcefulUser and make the resource available again in the ResourcePool
+ * @param <R> type of the resource
  */
 public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 

@@ -1,5 +1,9 @@
 package pool.resource;
 
+/**
+ * An user possessing a resource
+ * @param <R> type of the resource
+ */
 public class ResourcefulUser<R extends Resource> {
 	
 	protected R resource;
