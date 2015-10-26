@@ -4,7 +4,7 @@ import pool.action.Action;
 import pool.resource.*;
 
 /**
- * Action type defining something to do with a resource
+ * Action defining something to do with a resource
  * 
  * @param <R>
  *            type of the resource
