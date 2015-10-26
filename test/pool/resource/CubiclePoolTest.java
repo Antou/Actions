@@ -1,7 +1,5 @@
 package pool.resource;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class CubiclePoolTest extends ResourcePoolTest<Cubicle> {
@@ -19,7 +17,10 @@ public class CubiclePoolTest extends ResourcePoolTest<Cubicle> {
 	@Test
 	public void testCreateResource() {
 		CubiclePool cubiclePool = new CubiclePool(1);
-		assertTrue(cubiclePool.createResource() instanceof Cubicle);
+		@SuppressWarnings("unused")
+		// this test only makes sure that createResource() returns a Basket
+		// instance. If the test compiles, the test must pass.
+		Cubicle cubicle = cubiclePool.createResource();
 	}
 
 }

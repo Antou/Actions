@@ -38,14 +38,12 @@ public abstract class ResourcePoolTest<R extends Resource> {
 		assertFalse(resourcePool.usedResources.contains(resource2));
 
 		assertEquals(resource1, resourcePool.provideResource());
-
 		assertFalse(resourcePool.availableResources.contains(resource1));
 		assertTrue(resourcePool.availableResources.contains(resource2));
 		assertTrue(resourcePool.usedResources.contains(resource1));
 		assertFalse(resourcePool.usedResources.contains(resource2));
 
 		assertEquals(resource2, resourcePool.provideResource());
-
 		assertFalse(resourcePool.availableResources.contains(resource1));
 		assertFalse(resourcePool.availableResources.contains(resource2));
 		assertTrue(resourcePool.usedResources.contains(resource1));
@@ -62,14 +60,12 @@ public abstract class ResourcePoolTest<R extends Resource> {
 		resourcePool.provideResource();
 
 		resourcePool.freeResource(resource1);
-
 		assertTrue(resourcePool.availableResources.contains(resource1));
 		assertFalse(resourcePool.availableResources.contains(resource2));
 		assertFalse(resourcePool.usedResources.contains(resource1));
 		assertTrue(resourcePool.usedResources.contains(resource2));
 
 		resourcePool.freeResource(resource2);
-
 		assertTrue(resourcePool.availableResources.contains(resource1));
 		assertTrue(resourcePool.availableResources.contains(resource2));
 		assertFalse(resourcePool.usedResources.contains(resource1));

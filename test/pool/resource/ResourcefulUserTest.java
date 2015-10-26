@@ -24,7 +24,6 @@ public class ResourcefulUserTest {
 		assertEquals(resourceTest, resourcefulUserTest.resource);
 		
 		resourcefulUserTest.resetResource();
-		
 		assertNull(resourcefulUserTest.resource);	
 	}
 	
@@ -34,7 +33,6 @@ public class ResourcefulUserTest {
 		Basket resourceTest = new Basket();
 		
 		resourcefulUserTest.setResource(resourceTest);
-		
 		assertEquals(resourcefulUserTest.resource, resourcefulUserTest.getResource());
 		assertEquals(resourceTest, resourcefulUserTest.getResource());
 	}
