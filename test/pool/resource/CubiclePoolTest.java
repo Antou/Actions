@@ -13,7 +13,7 @@ public class CubiclePoolTest extends ResourcePoolTest<Cubicle> {
 	protected Cubicle createResourceTest() {
 		return new Cubicle();
 	}
-	
+
 	@Test
 	public void testCreateResource() {
 		CubiclePool cubiclePool = new CubiclePool(1);

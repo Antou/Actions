@@ -4,14 +4,14 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * Action which needs a specific number of steps to be finished 
+ * Action which needs a specific number of steps to be finished
  */
 public class ForeseeableAction extends Action {
-	
+
 	protected final int totalTime;
 	protected int remainingTime;
 	protected String actionName;
-	
+
 	public ForeseeableAction(int timeToEnd, String actionName) {
 		this.totalTime = timeToEnd;
 		this.remainingTime = timeToEnd;
@@ -21,7 +21,9 @@ public class ForeseeableAction extends Action {
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
 		this.remainingTime--;
-		System.out.println(" \\ " + this.actionName + " (" + (this.totalTime - this.remainingTime) + "/" + this.totalTime + ")");
+		System.out.println(" \\ " + this.actionName + " ("
+				+ (this.totalTime - this.remainingTime) + "/" + this.totalTime
+				+ ")");
 	}
 
 	public boolean isReady() {

@@ -9,16 +9,17 @@ import org.junit.Test;
 public abstract class ResourcePoolTest<R extends Resource> {
 
 	protected abstract ResourcePool<R> createResourcePoolTest(int capacity);
+
 	protected abstract R createResourceTest();
 
-	@Test(expected= NoSuchElementException.class)
+	@Test(expected = NoSuchElementException.class)
 	public void testProvideResourceWhenThereAreNoResource() {
 		ResourcePool<R> resourcePool = this.createResourcePoolTest(0);
 
 		resourcePool.provideResource();
 	}
 
-	@Test(expected= IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testFreeResourceWithAnIllegalArgument() {
 		ResourcePool<R> resourcePool = this.createResourcePoolTest(1);
 		R resource = this.createResourceTest();
