@@ -23,8 +23,7 @@ public abstract class Scheduler extends Action {
 	 * @throws IllegalStateException
 	 *             if the scheduler is already finished
 	 */
-	public void addAction(Action actionToAdd) throws IllegalArgumentException,
-			IllegalStateException {
+	public void addAction(Action actionToAdd) throws IllegalArgumentException, IllegalStateException {
 		if (actionToAdd.isFinished()) {
 			throw new IllegalArgumentException(
 					"You can’t add an already finished action");

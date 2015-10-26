@@ -12,8 +12,7 @@ import pool.resource.*;
  */
 public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 
-	public FreeResourceAction(ResourcefulUser<R> resourcefulUser,
-			ResourcePool<R> resourcePool) {
+	public FreeResourceAction(ResourcefulUser<R> resourcefulUser, ResourcePool<R> resourcePool) {
 		super(resourcefulUser, resourcePool);
 	}
 

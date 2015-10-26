@@ -13,8 +13,7 @@ public class FairScheduler extends Scheduler {
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
-		Action action = this.actions
-				.get(this.indexOfCurrentAction %= this.actions.size());
+		Action action = this.actions.get(this.indexOfCurrentAction %= this.actions.size());
 		action.doStep();
 		if (!this.removeActionIfFinished(action)) {
 			this.indexOfCurrentAction++;

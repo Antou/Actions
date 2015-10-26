@@ -5,12 +5,12 @@ import org.junit.Test;
 public class BasketPoolTest extends ResourcePoolTest<Basket> {
 
 	@Override
-	protected ResourcePool<Basket> createResourcePoolTest(int capacity) {
+	protected ResourcePool<Basket> createResourcePool(int capacity) {
 		return new BasketPool(capacity);
 	}
 
 	@Override
-	protected Basket createResourceTest() {
+	protected Basket createResource() {
 		return new Basket();
 	}
 

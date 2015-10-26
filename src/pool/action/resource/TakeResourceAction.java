@@ -14,24 +14,20 @@ import pool.resource.*;
  */
 public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
-	public TakeResourceAction(ResourcefulUser<R> resourcefulUser,
-			ResourcePool<R> resourcePool) {
+	public TakeResourceAction(ResourcefulUser<R> resourcefulUser, ResourcePool<R> resourcePool) {
 		super(resourcefulUser, resourcePool);
 	}
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
-		System.out.print(" \\ Trying to take resource from "
-				+ this.resourcePool.description() + "... ");
+		System.out.print(" \\ Trying to take resource from " + this.resourcePool.description() + "... ");
 		try {
-			this.resourcefulUser.setResource(this.resourcePool
-					.provideResource());
+			R resourceProvide = this.resourcePool.provideResource();
+			this.resourcefulUser.setResource(resourceProvide);
 			System.out.println("success");
 		} catch (NoSuchElementException e) {
-			this.resourcefulUser.setResource(null);
 			System.out.println("failed");
 		}
-
 	}
 
 	@Override

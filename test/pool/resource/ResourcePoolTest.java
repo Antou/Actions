@@ -8,28 +8,28 @@ import org.junit.Test;
 
 public abstract class ResourcePoolTest<R extends Resource> {
 
-	protected abstract ResourcePool<R> createResourcePoolTest(int capacity);
+	protected abstract ResourcePool<R> createResourcePool(int capacity);
 
-	protected abstract R createResourceTest();
+	protected abstract R createResource();
 
 	@Test(expected = NoSuchElementException.class)
 	public void testProvideResourceWhenThereAreNoResource() {
-		ResourcePool<R> resourcePool = this.createResourcePoolTest(0);
+		ResourcePool<R> resourcePool = this.createResourcePool(0);
 
 		resourcePool.provideResource();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFreeResourceWithAnIllegalArgument() {
-		ResourcePool<R> resourcePool = this.createResourcePoolTest(1);
-		R resource = this.createResourceTest();
+		ResourcePool<R> resourcePool = this.createResourcePool(1);
+		R resource = this.createResource();
 
 		resourcePool.freeResource(resource);
 	}
 
 	@Test
 	public void testProvideResource() {
-		ResourcePool<R> resourcePool = this.createResourcePoolTest(2);
+		ResourcePool<R> resourcePool = this.createResourcePool(2);
 		R resource1 = resourcePool.availableResources.get(0);
 		R resource2 = resourcePool.availableResources.get(1);
 
@@ -53,7 +53,7 @@ public abstract class ResourcePoolTest<R extends Resource> {
 
 	@Test
 	public void testFreeResource() {
-		ResourcePool<R> resourcePool = this.createResourcePoolTest(2);
+		ResourcePool<R> resourcePool = this.createResourcePool(2);
 		R resource1 = resourcePool.availableResources.get(0);
 		R resource2 = resourcePool.availableResources.get(1);
 

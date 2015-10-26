@@ -20,8 +20,7 @@ public abstract class ResourceAction<R extends Resource> extends Action {
 	 * @param resourcefulUser
 	 * @param resourcePool
 	 */
-	public ResourceAction(ResourcefulUser<R> resourcefulUser,
-			ResourcePool<R> resourcePool) {
+	public ResourceAction(ResourcefulUser<R> resourcefulUser, ResourcePool<R> resourcePool) {
 		this.resourcefulUser = resourcefulUser;
 		this.resourcePool = resourcePool;
 	}

@@ -5,12 +5,12 @@ import org.junit.Test;
 public class CubiclePoolTest extends ResourcePoolTest<Cubicle> {
 
 	@Override
-	protected ResourcePool<Cubicle> createResourcePoolTest(int capacity) {
+	protected ResourcePool<Cubicle> createResourcePool(int capacity) {
 		return new CubiclePool(capacity);
 	}
 
 	@Override
-	protected Cubicle createResourceTest() {
+	protected Cubicle createResource() {
 		return new Cubicle();
 	}
 
