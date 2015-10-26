@@ -10,15 +10,18 @@ public class ForeseeableAction extends Action {
 	
 	protected final int totalTime;
 	protected int remainingTime;
+	protected String actionName;
 	
-	public ForeseeableAction(int timeToEnd) {
+	public ForeseeableAction(int timeToEnd, String actionName) {
 		this.totalTime = timeToEnd;
 		this.remainingTime = timeToEnd;
+		this.actionName = actionName;
 	}
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
 		this.remainingTime--;
+		System.out.println(" \\ " + this.actionName + " (" + (this.totalTime - this.remainingTime) + "/" + this.totalTime + ")");
 	}
 
 	public boolean isReady() {
