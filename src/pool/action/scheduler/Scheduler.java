@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pool.action.Action;
+import pool.action.exception.ActionFinishedException;
 
 /**
  * A scheduler meant to store the different Actions to do and to remove them
@@ -23,7 +24,8 @@ public abstract class Scheduler extends Action {
 	 * @throws IllegalStateException
 	 *             if the scheduler is already finished
 	 */
-	public void addAction(Action actionToAdd) throws IllegalArgumentException, IllegalStateException {
+	public void addAction(Action actionToAdd) throws IllegalArgumentException,
+			IllegalStateException {
 		if (actionToAdd.isFinished()) {
 			throw new IllegalArgumentException(
 					"You can’t add an already finished action");
@@ -34,6 +36,19 @@ public abstract class Scheduler extends Action {
 			this.actions.add(actionToAdd);
 		}
 	}
+
+	protected void doStepAction() throws ActionFinishedException {
+		Action nextAction = this.nextAction();
+		nextAction.doStep();
+		this.removeActionIfFinished(nextAction);
+	}
+
+	/**
+	 * TODO
+	 * 
+	 * @return
+	 */
+	protected abstract Action nextAction();
 
 	/**
 	 * Check if the action sent as a parameter is finished, and if it does,
@@ -51,4 +66,5 @@ public abstract class Scheduler extends Action {
 	public boolean isFinished() {
 		return !this.isReady && this.actions.isEmpty();
 	}
+	
 }

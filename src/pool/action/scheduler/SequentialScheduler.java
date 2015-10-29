@@ -1,7 +1,6 @@
 package pool.action.scheduler;
 
 import pool.action.Action;
-import pool.action.exception.ActionFinishedException;
 
 /**
  * A specific kind of scheduler which execute the first Action in line
@@ -9,10 +8,8 @@ import pool.action.exception.ActionFinishedException;
 public class SequentialScheduler extends Scheduler {
 
 	@Override
-	protected void doStepAction() throws ActionFinishedException {
-		Action action = this.actions.get(0);
-		action.doStep();
-		this.removeActionIfFinished(action);
+	protected Action nextAction() {
+		return this.actions.get(0);
 	}
 
 }
