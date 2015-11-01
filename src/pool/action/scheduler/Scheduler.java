@@ -7,8 +7,8 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * A scheduler meant to store the different Actions to do and to remove them
- * when finished
+ * Scheduler selecting the next Actions to be admitted into the system and the next step to run
+ * When an Action is finished, it is removed from the scheduler
  */
 public abstract class Scheduler extends Action {
 
@@ -44,9 +44,7 @@ public abstract class Scheduler extends Action {
 	}
 
 	/**
-	 * TODO
-	 * 
-	 * @return
+	 * @return the next action for which a step will be executed, depending of the type of scheduler
 	 */
 	protected abstract Action nextAction();
 

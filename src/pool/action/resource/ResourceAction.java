@@ -15,7 +15,7 @@ public abstract class ResourceAction<R extends Resource> extends Action {
 	protected ResourcePool<R> resourcePool;
 
 	/**
-	 * Define a pool of resource and the user which will take action
+	 * Define a pool of resources and the user using it
 	 * 
 	 * @param resourcefulUser
 	 * @param resourcePool

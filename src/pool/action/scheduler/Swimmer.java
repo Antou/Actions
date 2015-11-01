@@ -6,7 +6,8 @@ import pool.action.resource.*;
 import pool.resource.*;
 
 /**
- * TODO
+ * A swimmer represent an user in the simulation. Each one of them is assigned a name, and it can
+ *  use a basket and a cubicle.
  */
 public class Swimmer extends SequentialScheduler {
 
