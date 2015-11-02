@@ -7,7 +7,7 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * Scheduler selecting the next Actions to be admitted into the system and the next step to run
+ * Scheduler selecting the next Action to be admitted into the system and the next step to run
  * When an Action is finished, it is removed from the scheduler
  */
 public abstract class Scheduler extends Action {
@@ -15,7 +15,7 @@ public abstract class Scheduler extends Action {
 	protected List<Action> actions = new ArrayList<Action>();
 
 	/**
-	 * Add an action to the scheduler.
+	 * Adds an action to the scheduler.
 	 * 
 	 * @param actionToAdd
 	 *            the action to add to the scheduler
@@ -43,7 +43,10 @@ public abstract class Scheduler extends Action {
 	}
 
 	/**
-	 * @return the next action for which a step will be executed, depending of the type of scheduler
+	 * Returns the next action for which a step will be executed, depending of
+	 * the type of scheduler
+	 * 
+	 * @return the next action
 	 */
 	protected abstract Action nextAction();
 
@@ -51,7 +54,7 @@ public abstract class Scheduler extends Action {
 	 * Check if the action sent as a parameter is finished, and if it does,
 	 * remove it from the List
 	 * 
-	 * @param action
+	 * @param action action to check
 	 */
 	protected boolean removeActionIfFinished(Action action) {
 		if (action.isFinished()) {
@@ -65,19 +68,19 @@ public abstract class Scheduler extends Action {
 	}
 	
 	/**
-	 * TODO
+	 * Returns the action at the specified position 
 	 * 
-	 * @param index
-	 * @return
+	 * @param index specified position
+	 * @return the action at the specified position
 	 */
 	protected Action getActionAt(int index) {
 		return this.actions.get(index);
 	}
 	
 	/**
-	 * TODO
+	 * Returns the number of actions in this scheduler
 	 * 
-	 * @return
+	 * @return the number of actions in this scheduler
 	 */
 	protected int getSize() {
 		return this.actions.size();
