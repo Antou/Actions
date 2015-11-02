@@ -10,18 +10,18 @@ public abstract class Action {
 	protected boolean isReady = true;
 
 	/**
-	 * TODO
+	 * Returns true if this action has not started
 	 * 
-	 * @return
+	 * @return true if this action has not started
 	 */
 	public boolean isReady() {
 		return this.isReady;
 	}
 
 	/**
-	 * TODO
+	 * Returns true if this action is in progress
 	 * 
-	 * @return
+	 * @return true if this action is in progress
 	 */
 	public boolean isInProgress() {
 		return !this.isReady && !this.isFinished();
@@ -37,7 +37,7 @@ public abstract class Action {
 	/**
 	 * TODO
 	 * 
-	 * @throws ActionFinishedException
+	 * @throws ActionFinishedException if this action is finished
 	 */
 	public final void doStep() throws ActionFinishedException {
 		if (this.isFinished()) {
@@ -49,9 +49,9 @@ public abstract class Action {
 	}
 
 	/**
-	 * TODO
+	 * Defines the body of doStep
 	 * 
-	 * @throws ActionFinishedException
+	 * @throws ActionFinishedException if this action is finished
 	 */
 	protected abstract void doStepAction() throws ActionFinishedException;
 }

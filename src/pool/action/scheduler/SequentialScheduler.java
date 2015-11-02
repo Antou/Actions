@@ -9,7 +9,7 @@ public class SequentialScheduler extends Scheduler {
 
 	@Override
 	protected Action nextAction() {
-		return this.actions.get(0);
+		return this.getActionAt(0);
 	}
 
 }

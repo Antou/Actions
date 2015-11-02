@@ -4,6 +4,11 @@ import pool.action.exception.ActionFinishedException;
 import pool.action.scheduler.*;
 import pool.resource.*;
 
+/**
+ * Pool is a simulation of 6 swimmers who come at the swimming pool. The
+ * swimming pool has 3 cubicles that swimmers use to undress/dress and 6 baskets
+ * which can contain the clothes of swimmers.
+ */
 public class Pool {
 
 	public static void main(String[] args) throws ActionFinishedException {

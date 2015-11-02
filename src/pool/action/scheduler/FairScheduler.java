@@ -12,15 +12,17 @@ public class FairScheduler extends Scheduler {
 
 	@Override
 	protected Action nextAction() {
-		return this.actions.get(this.indexOfCurrentAction %= this.actions.size());
+		return this.getActionAt(this.indexOfCurrentAction %= this.getSize());
 	}
 	
 	protected boolean removeActionIfFinished(Action action) {
-		if(!super.removeActionIfFinished(action)) {
+		boolean actionRemoved = super.removeActionIfFinished(action);
+		
+		if(!actionRemoved) {
 			this.indexOfCurrentAction++;
-			return false;
 		}
-		return true;
+		
+		return actionRemoved;
 	}
 
 }

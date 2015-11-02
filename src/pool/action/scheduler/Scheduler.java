@@ -15,7 +15,7 @@ public abstract class Scheduler extends Action {
 	protected List<Action> actions = new ArrayList<Action>();
 
 	/**
-	 * Add an action to the scheduler
+	 * Add an action to the scheduler.
 	 * 
 	 * @param actionToAdd
 	 *            the action to add to the scheduler
@@ -24,8 +24,7 @@ public abstract class Scheduler extends Action {
 	 * @throws IllegalStateException
 	 *             if the scheduler is already finished
 	 */
-	public void addAction(Action actionToAdd) throws IllegalArgumentException,
-			IllegalStateException {
+	public void addAction(Action actionToAdd) throws IllegalArgumentException, IllegalStateException {
 		if (actionToAdd.isFinished()) {
 			throw new IllegalArgumentException(
 					"You can’t add an already finished action");
@@ -63,6 +62,25 @@ public abstract class Scheduler extends Action {
 
 	public boolean isFinished() {
 		return !this.isReady && this.actions.isEmpty();
+	}
+	
+	/**
+	 * TODO
+	 * 
+	 * @param index
+	 * @return
+	 */
+	protected Action getActionAt(int index) {
+		return this.actions.get(index);
+	}
+	
+	/**
+	 * TODO
+	 * 
+	 * @return
+	 */
+	protected int getSize() {
+		return this.actions.size();
 	}
 	
 }
