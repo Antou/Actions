@@ -1,7 +1,7 @@
 package pool.resource;
 
 /**
- * A basket which can be used in the simulation to store clothes
+ * A Resource which is a basket that can be used in the pool simulation to put the swimmer's clothes in
  */
 public class Basket implements Resource {
 

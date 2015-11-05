@@ -15,9 +15,8 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	protected ArrayList<R> usedResources;
 
 	/**
-	 * TODO
-	 * 
-	 * @param capacity the number of resource available at the creation
+	 * Constructs a pool of resources which contains capacity resources
+	 * @param capacity the number of resource available at the beginning
 	 */
 	public ResourcePool(int capacity) {
 		this.availableResources = new ArrayList<R>(capacity);
@@ -36,7 +35,7 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	public abstract R createResource();
 
 	/**
-	 * Can make available a resource previously used.
+	 * Makes a resource previously used, available 
 	 * 
 	 * @param resourceToFree
 	 *            the resource to free
@@ -53,7 +52,7 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	}
 
 	/**
-	 * Returns a unused resource from this pool.
+	 * Returns an unused resource from this pool.
 	 * 
 	 * @return the unused resource
 	 * @throws NoSuchElementException

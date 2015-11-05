@@ -3,14 +3,14 @@ package pool.action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * TODO
+ * Things evolving from an initial state to a final state by steps.
  */
 public abstract class Action {
 
 	protected boolean isReady = true;
 
 	/**
-	 * Returns true if this action has not started
+	 * Returns true if this action has not started 
 	 * 
 	 * @return true if this action has not started
 	 */
@@ -28,14 +28,14 @@ public abstract class Action {
 	}
 
 	/**
-	 * TODO
+	 * Returns true if this action is finished
 	 * 
-	 * @return
+	 * @return true if this action is finished
 	 */
 	public abstract boolean isFinished();
 
 	/**
-	 * TODO
+	 * Changes the state of this action to get closer or to get to its final state.
 	 * 
 	 * @throws ActionFinishedException if this action is finished
 	 */

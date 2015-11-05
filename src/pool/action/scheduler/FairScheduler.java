@@ -3,8 +3,8 @@ package pool.action.scheduler;
 import pool.action.Action;
 
 /**
- * Scheduler which execute one step of the next action in
- * line
+ * Type of Scheduler which will execute its actions at the same tim, it will do one step of his first action then one step of the next one ...
+ * until all actions are finished
  */
 public class FairScheduler extends Scheduler {
 

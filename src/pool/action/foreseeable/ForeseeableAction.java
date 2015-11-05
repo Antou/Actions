@@ -4,7 +4,7 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * Action which needs a specific number of steps to be finished
+ * Type of Action which needs a specific number of steps to be finished.
  */
 public class ForeseeableAction extends Action {
 
@@ -12,6 +12,12 @@ public class ForeseeableAction extends Action {
 	protected int remainingTime;
 	protected String actionName;
 
+	
+	/**
+	 * Constructs a new foreseeable action 
+	 * @param timeToEnd the time the action will take to finish
+	 * @param actionName the name of the action
+	 */
 	public ForeseeableAction(int timeToEnd, String actionName) {
 		this.totalTime = timeToEnd;
 		this.remainingTime = timeToEnd;

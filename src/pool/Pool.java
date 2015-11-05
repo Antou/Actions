@@ -5,9 +5,9 @@ import pool.action.scheduler.*;
 import pool.resource.*;
 
 /**
- * Pool is a simulation of 6 swimmers who come at the swimming pool. The
- * swimming pool has 3 cubicles that swimmers use to undress/dress and 6 baskets
- * which can contain the clothes of swimmers.
+ * Pool is a simulation of 6 swimmers going to the swimming pool. The
+ * swimming pool has 3 cubicles that swimmers can use to undress/dress and has 6 baskets
+ * which can contain the swimmers clothes.
  */
 public class Pool {
 

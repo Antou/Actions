@@ -1,7 +1,7 @@
 package pool.resource;
 
 /**
- * A cubicle which can be used in the simulation to get changed
+ * A Resource which is a cubicle that can be used in the pool simulation so the swimmer can get changed
  */
 public class Cubicle implements Resource {
 
