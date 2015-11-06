@@ -6,8 +6,8 @@ import pool.action.resource.*;
 import pool.resource.*;
 
 /**
- * A swimmer represents a user in the pool simulation. Each of them has a name, and can
- * use a basket or a cubicle.
+ * A swimmer represents a user in the pool simulation. Each of them has a name,
+ * and can use a basket or a cubicle.
  */
 public class Swimmer extends SequentialScheduler {
 
@@ -18,8 +18,8 @@ public class Swimmer extends SequentialScheduler {
 	public Swimmer(String name, BasketPool baskets, CubiclePool cubicles,
 			int timeToUndress, int timeToSwim, int timeToDress) {
 		this.name = name;
-		this.basket = new ResourcefulUser<Basket>();
-		this.cubicle = new ResourcefulUser<Cubicle>();
+		this.basket = new ResourcefulUser<Basket>(this.name);
+		this.cubicle = new ResourcefulUser<Cubicle>(this.name);
 		this.addAction(new TakeResourceAction<Basket>(this.basket, baskets));
 		this.addAction(new TakeResourceAction<Cubicle>(this.cubicle, cubicles));
 		this.addAction(new ForeseeableAction(timeToUndress, "Undressing"));

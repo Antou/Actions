@@ -1,7 +1,7 @@
 package pool.resource;
 
 /**
- * An item defined by its description and used generally in a pool
+ * An item defined by its description and used generally in a pool.
  */
 public interface Resource {
 

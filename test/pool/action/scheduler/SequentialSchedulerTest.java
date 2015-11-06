@@ -1,15 +1,17 @@
 package pool.action.scheduler;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 public class SequentialSchedulerTest extends SchedulerTest {
 	
-	protected Action createAction() {
+	@Override
+	protected Scheduler createScheduler() {
 		return new SequentialScheduler();
 	}
 	
@@ -29,8 +31,8 @@ public class SequentialSchedulerTest extends SchedulerTest {
 		while(!this.scheduler.isFinished()) {
 			this.scheduler.doStep();
 		}
-		
-		/*checks if the action has been removed from the scheduler as it's finished*/
+		// checks if the action has been removed from the scheduler as it's
+		// finished
 		assertTrue(this.scheduler.isFinished());
 	}
 

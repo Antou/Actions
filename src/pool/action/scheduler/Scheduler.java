@@ -7,8 +7,9 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * Type of Action which is a Scheduler containing other Actions. It selects the next Action which will evolve and the next step to run.
- * When an Action is finished, it is removed from the scheduler
+ * Type of Action which is a Scheduler containing other Actions. It selects the
+ * next Action which will evolve and the next step to run. When an Action is
+ * finished, it is removed from the scheduler.
  */
 public abstract class Scheduler extends Action {
 
@@ -44,7 +45,7 @@ public abstract class Scheduler extends Action {
 
 	/**
 	 * Returns the next action for which a step will be executed, depending on
-	 * the type of scheduler
+	 * the type of scheduler.
 	 * 
 	 * @return the next action
 	 */
@@ -52,7 +53,7 @@ public abstract class Scheduler extends Action {
 
 	/**
 	 * Checks if the action is finished, and if it is,
-	 * removes it from the Scheduler
+	 * removes it from the Scheduler.
 	 * 
 	 * @param action action to check
 	 */
@@ -68,7 +69,7 @@ public abstract class Scheduler extends Action {
 	}
 	
 	/**
-	 * Returns the action at the specified position 
+	 * Returns the action at the specified position.
 	 * 
 	 * @param index specified position
 	 * @return the action at the specified position
@@ -78,7 +79,7 @@ public abstract class Scheduler extends Action {
 	}
 	
 	/**
-	 * Returns the number of actions in this scheduler
+	 * Returns the number of actions in this scheduler.
 	 * 
 	 * @return the number of actions in this scheduler
 	 */

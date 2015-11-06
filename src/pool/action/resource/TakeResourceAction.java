@@ -7,7 +7,7 @@ import pool.resource.*;
 
 /**
  * Action which, when is executed, takes a resource from a ResourcePool and permits
- * to a ResourcefulUser to use it 
+ * to a ResourcefulUser to use it.
  * 
  * @param <R>
  *            type of the resource
@@ -15,7 +15,8 @@ import pool.resource.*;
 public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	/**
-	 * Constructs a new action that allows a user to take a resource from a pool
+	 * Constructs a new action that allows a user to take a resource from a pool.
+	 * 
 	 * @param resourcefulUser the user employing the resource
 	 * @param resourcePool the pool from where the resource is from
 	 */
@@ -25,19 +26,18 @@ public class TakeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
-		System.out.print(" \\ Trying to take resource from " + this.resourcePool.description() + "... ");
+		System.out.print(" \\ " + this.resourcefulUser.getUserName()
+				+ " trying to take resource from "
+				+ this.resourcePool.description() + "... ");
+		
 		try {
 			R resourceProvide = this.resourcePool.provideResource();
 			this.resourcefulUser.setResource(resourceProvide);
 			System.out.println("success");
+			this.isFinished = true;
 		} catch (NoSuchElementException e) {
 			System.out.println("failed");
 		}
-	}
-
-	@Override
-	public boolean isFinished() {
-		return this.resourcefulUser.getResource() != null;
 	}
 
 }

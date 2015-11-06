@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 /**
- * A resource manager able to provide and free resources that it contains
+ * A resource manager able to provide and free resources that it contains.
  * 
  * @param <R>
  *            specific kind of resource managed
@@ -15,7 +15,8 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	protected ArrayList<R> usedResources;
 
 	/**
-	 * Constructs a pool of resources which contains capacity resources
+	 * Constructs a pool of resources which contains capacity resources.
+	 * 
 	 * @param capacity the number of resource available at the beginning
 	 */
 	public ResourcePool(int capacity) {
@@ -35,7 +36,7 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 	public abstract R createResource();
 
 	/**
-	 * Makes a resource previously used, available 
+	 * Makes a resource previously used, available.
 	 * 
 	 * @param resourceToFree
 	 *            the resource to free
@@ -68,4 +69,5 @@ public abstract class ResourcePool<R extends Resource> implements Resource {
 
 		return resourceToReturn;
 	}
+	
 }

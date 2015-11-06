@@ -1,8 +1,10 @@
 package pool;
 
 import pool.action.exception.ActionFinishedException;
-import pool.action.scheduler.*;
-import pool.resource.*;
+import pool.action.scheduler.FairScheduler;
+import pool.action.scheduler.Swimmer;
+import pool.resource.BasketPool;
+import pool.resource.CubiclePool;
 
 /**
  * Pool is a simulation of 6 swimmers going to the swimming pool. The

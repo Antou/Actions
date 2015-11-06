@@ -4,8 +4,8 @@ import pool.action.exception.ActionFinishedException;
 import pool.resource.*;
 
 /**
- * Type of Action which, when is executed, takes its resource from a ResourcefulUser and makes
- * it available once again in the ResourcePool
+ * Action which, when is executed, takes its resource from a ResourcefulUser and makes
+ * it available once again in the ResourcePool.
  * 
  * @param <R>
  *            type of the resource
@@ -13,7 +13,8 @@ import pool.resource.*;
 public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	/**
-	 * Constructs a new action that frees a Resource from a user
+	 * Constructs a new action that frees a Resource from a user.
+	 * 
 	 * @param resourcefulUser the user employing the resource
 	 * @param resourcePool the pool from where the resource is from
 	 */
@@ -23,15 +24,18 @@ public class FreeResourceAction<R extends Resource> extends ResourceAction<R> {
 
 	@Override
 	protected void doStepAction() throws ActionFinishedException {
-		this.resourcePool.freeResource(this.resourcefulUser.getResource());
-		this.resourcefulUser.resetResource();
-		System.out.println(" \\ Freeing resource from "
-				+ this.resourcePool.description());
-	}
-
-	@Override
-	public boolean isFinished() {
-		return !this.isReady && this.resourcefulUser.getResource() == null;
+		try {
+			this.resourcePool.freeResource(this.resourcefulUser.getResource());
+			this.resourcefulUser.resetResource();
+			this.isFinished = true;
+		}
+		catch (IllegalArgumentException e) {
+			// nothing to do
+		}
+		
+		System.out.println(" \\ " + (this.isFinished ? "" : "[ERROR] ")
+				+ this.resourcefulUser.getUserName()
+				+ " freeing resource from " + this.resourcePool.description());
 	}
 
 }

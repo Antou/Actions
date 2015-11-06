@@ -1,8 +1,8 @@
 package pool.resource;
 
 /**
- * A cubicle manager which provides or frees cubicles according to the
- * resources availability
+ * A cubicle manager which provides or frees cubicles according to the resources
+ * availability.
  */
 public class CubiclePool extends ResourcePool<Cubicle> {
 

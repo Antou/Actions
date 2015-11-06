@@ -4,7 +4,7 @@ import pool.action.Action;
 import pool.action.exception.ActionFinishedException;
 
 /**
- * Type of Action which needs a specific number of steps to be finished.
+ * Action which needs a specific number of steps to be finished.
  */
 public class ForeseeableAction extends Action {
 
@@ -14,7 +14,8 @@ public class ForeseeableAction extends Action {
 
 	
 	/**
-	 * Constructs a new foreseeable action 
+	 * Constructs a new foreseeable action.
+	 * 
 	 * @param timeToEnd the time the action will take to finish
 	 * @param actionName the name of the action
 	 */

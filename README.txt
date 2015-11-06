@@ -10,6 +10,6 @@ JONES Marie
 
 Notes :
 
-[X] Programme
-[ ] Tests
-[ ] Commentaires
+Pour notre projet, nous avons utilisé le gestionnaire de version Git.
+
+Notre dépôt distant est accessible à l'adresse suivante : https://github.com/Antou/Pool
