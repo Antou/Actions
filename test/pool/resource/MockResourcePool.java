@@ -7,10 +7,10 @@ public class MockResourcePool extends ResourcePool<MockResource> {
 	protected MockResource resource;
 	protected boolean resourceIsAvailable;
 	
-	public MockResourcePool() {
+	public MockResourcePool(boolean resourceIsAvailable) {
 		super(0);
 		this.resource = new MockResource();
-		this.resourceIsAvailable = true;
+		this.resourceIsAvailable = resourceIsAvailable;
 	}
 
 	@Override
